@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Between Tongues/Entres Lenguas (Taper #2)</title>
+
+<!-- "Between Tongues/Entres Lenguas", Copyright (C) 2018 Vinicius Marquet
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved. This file is offered as-is,
+without any warranty.
+
+This is from the second issue of Taper: Poems of Two, Fall 2018:
+
+
+https://taper.badquart.to/2/between_tongues_entre_lenguas.html
+
+Entre dos lenguas: "Duality" or "two" implies a border between identities, a
+difference from the unity and a recognizable distention with the otherness.
+"Entre dos lenguas / Between two languages" understands Language as a unique
+and natural border between humans; while it explores the semiotics of the word
+"two" coming from an array of 48 different languages, its mathematical
+representation ["2"] and the user interaction, as another layer of language.
+As the poem advances, it mutates the structure of the sentences. The poem's
+last screen shows a graphical division done as a consequence of the constant
+interaction. "Does ‘dos’ is ‘two’? Maybe, it could be, If we do present the
+same symbol. But it doesn't matter if we don’t experience language."
+
+Note: this code was optimized for presentation in  Taper#2 by Angela Chang.
+
+-->
+
+	<style>
+	body { margin:0 ; overflow:hidden }
+	a { color:#eee ; text-decoration:none }
+	header { margin:0 ; padding:0 ; background-color:#444 ; color:#bbb ;
+		position:relative ; z-index:1000 }
+	header > h1 { margin:0 ; font-size:12px ; font-family:sans-serif ;
+		border-bottom:1px #999 solid ; padding:5px 10px ; line-height:17px }
+	</style>
+</head>
+<body>
+<header id=nav>
+	<h1>
+		<a href="index.html">Taper #2 :
+		Poems of Two</a> : Fall 2018 <br>
+		<a href="between_tongues_entres_lenguas.html">"Between Tongues/Entre Lenguas"</a> by
+		<a href="about.html#marquet">Vinicius Marquet</a> :
+		<a href="divarication.html">&lt;&lt;</a> &mdash;
+		<a href="why_2k.html">&gt;&gt;</a> :
+		<a onclick="fullscreenEvt(true);"> Full screen </a>
+	</h1>
+	<script>
+	function fullscreenListeners(f)
+	{
+		f("mozfullscreenchange",fullscreenEvt);
+		f("MSFullscreenChange",fullscreenEvt);
+		f("fullscreenchange",fullscreenEvt);
+		f("webkitfullscreenchange",fullscreenEvt);
+	}
+	function fullscreenEvt(incomingReq)
+	{
+		fullscreenListeners(document.removeEventListener);
+		if(incomingReq===true||document.mozFullScreen||document.fullscreenElement||
+		document.webkitIsFullScreen||document.msFullscreenElement) {
+			var fsElt;
+			if(window.c instanceof HTMLCanvasElement) fsElt = window.c;
+			else fsElt = document.documentElement;
+			if (fsElt.requestFullscreen) fsElt.requestFullscreen();
+			else if (fsElt.msRequestFullscreen) fsElt.msRequestFullscreen();
+			else if (fsElt.mozRequestFullScreen) fsElt.mozRequestFullScreen();
+			else if (fsElt.webkitRequestFullScreen) fsElt.webkitRequestFullScreen();
+			nav.style.display = "none";
+		}
+		else nav.style.display = "block";
+		if (typeof l==="function") setTimeout(l,200);
+		fullscreenListeners(document.addEventListener);
+	}
+	</script>
+</header> <!-- The rest, the poem without the header, is at most 2kb -->
+<style>
+html{background:#330000}
+button:hover {background:#330000;color:#eeeeee}
+button:active {background:#33ff00;color:#330000}
+</style>
+<button id="tog" style="position:fixed;border:3px solid #33ff00;padding:4px;font-size:20px;font-weight:bold" onclick="Li()" onmouseout="Be()" >between tongues</button>
+<div id="cont" style="background:#eeeeee;font-family:sans-serif;color:#330000;font-size:24px"><span></span></div>
+<script>
+la=["between tongues","entre lenguas"];
+l=true;
+ck=0;
+cl="#eeeeee";
+function Be() {
+	var b=cont.getElementsByTagName("b");
+	for (i=0;i<b.length;i++) { b[i].style.color=cl }
+}
+function Li() {
+	l=!l;
+	tog.innerText=l?la[0]:la[1];
+	var dos="dy0two0bi0два0две0dva0to0twee0kaks0kaksi0deux0dous0zwei0δύο0kettő0tveir0dhá0due0divi0du0tnejn0dwa0dois0două0dos0två0ob0екі0ikki0hai0iki0awiri0biyu0abụọ0tsepedi0laba0mbili0meji0ezimbili0duhaka0dalawa0kalih0roa0dua0rua0de0duo".split(0);
+	d=dos.length;
+	u=Math.floor(Math.random()*d);
+	e=Math.floor(Math.random()*d);
+	if (u===e) { e+=2 }
+	if (e>d) { e=e-d }
+	sp=document.createElement("span");
+	sp.appendChild(document.createTextNode(dos[u]));
+	sp.classList.add("w");
+	np=document.createElement("span");
+	txt1=l?" no es ":" is not ";
+	np.appendChild(document.createTextNode(txt1));
+	sp1=document.createElement("span");
+	sp1.appendChild(document.createTextNode(dos[e]));
+	sp1.classList.add("w");
+	np1=document.createElement("span");
+	txt3=l?" a menos de que sea presente ":" unless it is present ";
+	np1.appendChild(document.createTextNode(txt3));
+	sp2=document.createElement("b");
+	sp2.appendChild(document.createTextNode(" 2 "));
+	sp2.style.color="red";
+	cont.appendChild(sp);
+	cont.appendChild(np);
+	cont.appendChild(sp1);
+	cont.appendChild(np1);
+	cont.appendChild(sp2);
+	dB=cont.getElementsByClassName("w");
+	ck+=1;
+	dB[ck].style.color=cl;
+}
+</script></body></html>
